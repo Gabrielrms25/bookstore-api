@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import com.ramos.bookstore.domain.Categoria;
 import com.ramos.bookstore.domain.Livro;
@@ -36,6 +37,8 @@ public class BookstoreApplication implements CommandLineRunner{
 	cat1.getLivros().addAll(Arrays.asList(l1));
 	this.categoriaRepository.saveAll(Arrays.asList(cat1));
 	this.livroRepository.saveAll(Arrays.asList(l1));
+	
+	//System.out.println(categoriaRepository.findAll());
 	
 	}
 
