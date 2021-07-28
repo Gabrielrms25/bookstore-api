@@ -14,9 +14,10 @@ import javax.persistence.OneToMany;
 public class Categoria implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private Integer id;
 	private String nome;
 	private String descricao;
 	
@@ -27,18 +28,18 @@ public class Categoria implements Serializable  {
 		super();
 	}
 
-	public Categoria(String id, String nome, String descricao) {
+	public Categoria(Integer id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
