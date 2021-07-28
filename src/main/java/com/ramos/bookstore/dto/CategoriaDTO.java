@@ -18,11 +18,11 @@ public class CategoriaDTO implements Serializable {
 	}
 	
 	
-	public CategoriaDTO(Categoria cat) {
+	public CategoriaDTO(Categoria obj) {
 		super();
-		this.id = cat.getId();
-		this.nome = cat.getNome();
-		this.descricao = cat.getDescricao();
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.descricao = obj.getDescricao();
 	}
 
 
