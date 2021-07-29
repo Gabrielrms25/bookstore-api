@@ -4,6 +4,8 @@ import javax.servlet.ServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -26,4 +28,14 @@ public class ResourceExceptionHandler {
 	}
 	
 	
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<ValidationError> validationErrors(MethodArgumentNotValidException e, ServletRequest request){
+		ValidationError error = new ValidationError(System.currentTimeMillis(), HttpStatus.NOT_FOUND.value(), "Erro na validação dos campos");
+		
+		for(FieldError x : e.getBindingResult().getFieldErrors()) {
+			error.addErrors(x.getField(), x.getDefaultMessage());
+		}
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+	}
 }

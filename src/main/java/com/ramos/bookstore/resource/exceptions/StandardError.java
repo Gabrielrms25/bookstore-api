@@ -1,6 +1,7 @@
 package com.ramos.bookstore.resource.exceptions;
 
 public class StandardError {
+	
 	private Long timestamp;
 	private Integer status;
 	private String error;

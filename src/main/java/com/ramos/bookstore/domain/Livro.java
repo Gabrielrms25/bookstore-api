@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -30,8 +31,8 @@ public class Livro implements Serializable  {
 	@Length(min = 3, max = 50, message = "O campo NOME DO AUTOR deve ter entre 10 e 50 caracteres")
 	private String nome_autor;
 	
-	@NotEmpty(message = "Campo TEXTO é requerido!")
-	@Length(min = 10, max = 2000000, message = "O campo TEXTO deve ter entre 10 e 2.000.000 caracteres")
+	//@NotEmpty(message = "Campo TEXTO é requerido!")
+	//@Length(min = 10, max = 2000000, message = "O campo TEXTO deve ter entre 10 e 2.000.000 caracteres")
 	private String texto;
 	
 	@JsonIgnore
